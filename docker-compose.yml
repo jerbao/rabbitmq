@@ -16,9 +16,8 @@ services:
       - "4369:4369"   # EPMD (Erlang Discovery)
       - "25672:25672" # Internal Cluster Communication (Erlang)
     extra_hosts:
-      - "rmq1:${IP_RMQ1}"
-      - "rmq2:${IP_RMQ2}"
-      - "rmq3:${IP_RMQ3}"
+      - "${RABBITMQ_PEER_A_NAME}:${PEER_RMQ_A}"
+      - "${RABBITMQ_PEER_B_NAME}:${PEER_RMQ_B}"
     restart: unless-stopped
 
 volumes:
